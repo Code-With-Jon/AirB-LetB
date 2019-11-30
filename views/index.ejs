@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+  <p>Welcome to <%= title %></p>
+
+  <% if (user){%>
+  <div class="container">
+    <div class='scroll-container'>
+      <% homes.forEach((home, idx)=>{ %>
+      <a href="/Homes/<%= home._id %>/detail">
+        <% if (idx % 2 === 0){ %>
+        <div class='white-container'>
+          <% } else { %>
+          <div class='gray-container'>
+            <% } %>
+            <p><%= home.address%></p>
+            <p><%= home.city%></p>
+          </div>
+      </a>
+
+      <%}) %>
+      <%  } else { %>
+      <div class="container">
+        <div class='scroll-container'>
+          <% homes.forEach((home, idx)=>{ %>
+          <% if (idx % 2 === 0){ %>
+          <div class='white-container'>
+            <% } else { %>
+            <div class='gray-container'>
+              <% } %>
+              <p><%= home.address%></p>
+              <p><%= home.city%></p>
+            </div>
+            </a>
+            <%}) %>
+            <% } %>
+          </div>
+        </div>
+</body>
+
+</html>

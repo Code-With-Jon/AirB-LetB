@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Add Home</title>
+</head>
+
+<body>
+    <form action="/Homes/<%= user.id %>" method="POST">
+        <input name="createdBy" value="<%= user.id%>" readonly>
+        <div class="form-group">
+            <label for="name">Address</label>
+            <input id="name" name="address" class="form-control" placeholder="Enter Address"
+                value="<%= typeof address != 'undefined' ? address : '' %>" />
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="" id="city" name="city" class="form-control" placeholder="Enter City"
+                value="<%= typeof city != 'undefined' ? city : '' %>" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="" id="description" name="description" class="form-control" placeholder="Create description"
+                value="<%= typeof description != 'undefined' ? description : '' %>" />
+        </div>
+        <input name="calender" type="date" class="datepicker">
+        <button type="submit" class="btn btn-primary btn-block">
+            Post Home
+        </button>
+    </form>
+
+</body>
+
+</html>
