@@ -2,6 +2,8 @@ var router = require('express').Router();
 var homeCtrl = require('../controllers/homes');
 var user = require('../models/user');
 var Home = require('../models/homes');
+// var db = require('../config/database')
+
 
 
 router.get('/', homeCtrl.index);
@@ -12,6 +14,16 @@ router.get('/:id', homeCtrl.new)
 router.post('/:id', homeCtrl.addHome);
 router.get('/:id/detail', homeCtrl.view)
 router.get('/:id/myHomes', homeCtrl.myHomes)
+router.delete('/:id', homeCtrl.delHome)
+router.get('/:id/edit', homeCtrl.editView)
+router.put('/:id', homeCtrl.updateHome)
+router.post('/:id/myStays', homeCtrl.addStay)
+
+
+//upload file
+// router.post('/upload', upload.single('file'), (req, res) => {
+//     res.json({ file: req.file })
+// })
 
 
 //Add Home Handle

@@ -8,7 +8,7 @@ var Home = require('../models/homes')
 router.get('/', (req, res) => {
   Home.find({}, (err, homes) => {
     res.render('index', {
-      title: 'AirBnLetB',
+      title: 'AirB & LetB',
       user: req.user,
       homes
     });

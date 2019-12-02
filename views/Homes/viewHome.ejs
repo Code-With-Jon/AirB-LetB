@@ -5,18 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/2ec42d532e.js" crossorigin="anonymous"></script>
     <title><%= title %></title>
 </head>
 
 <body>
-    <div class='details-view'>
-        <p><%= home.address %></p>
-        <p><%= home.city %></p>
-        <p><%= home.description %></p>
-        <p><%= home.calander %></p>
-        <p><%= home.name %></p>
+    <header>
+        <nav class="nav-wrapper">
 
-    </div>
+            <a href="/Homes" class="brand-logo left">AIR B & LET B</a>
+            <ul class="right">
+
+                <li> <a href="/Homes">Home</a> </li>
+                <li> <a href="/">About</a></li>
+                <li> <a href="/Homes/<%= user._id %>">Become A Host</a></li>
+                <li> <a href="/Homes/<%= user._id %>/myHomes">My Homes</a></li>
+                <% if (user) { %>
+                <li> <a href="/logout"><%=user.name%></a></li>
+
+                <% } else { %>
+                <li> <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
+                <% } %>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <form action="/Homes/<%=home._id%>?_method=PUT" method="POST">
+        <label>Renter</label>
+        <input name="createdBy" value="<%= user.name%>" readonly>
+        <div class="form-group">
+            <label for="name">Address</label>
+            <input id="name" name="address" class="form-control" placeholder="Enter Address" value="<%= home.address %>"
+                readonly />
+            <label for="city">City</label>
+            <input type="" id="city" name="city" class="form-control" placeholder="Enter City" value="<%=home.city %>"
+                readonly />
+            <label for="description">Description</label>
+            <input type="" id="description" name="description" class="form-control" placeholder="Create description"
+                value="<%=home.description %>" readonly />
+        </div>
+        <input name="calender" type="date" class="datepicker">
+        <button type="submit" class="btn btn-primary btn-block">
+            Confirm Rental
+        </button>
+    </form>
 </body>
 
 </html>

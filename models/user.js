@@ -14,13 +14,14 @@ var userSchema = new Schema({
     phone: { type: String },
     avatar: String,
     googleId: String,
+    stays: [],
     homes: {
         type: Schema.Types.ObjectId,
         ref: 'Homes'
     }
 
 }, {
-    timestamps: true
-});
+        timestamps: true
+    });
 
 module.exports = mongoose.model('User', userSchema);

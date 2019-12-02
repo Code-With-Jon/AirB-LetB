@@ -4,6 +4,17 @@ body {
   margin: 0;
 }
 
+#landing-body{
+  background-image: url(https://content.fortune.com/wp-content/uploads/2015/08/9133oriole004_ps-1.jpg);
+  background-repeat: round;
+}
+
+#home-background{
+  background-image: url(https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2017/12/master_bedroom_view-h_2017.jpg);
+  background-size: cover;
+}
+
+
 a {
   color: #00B7FF;
 }
@@ -23,9 +34,15 @@ nav ul a{
 
 .gray-container {
   background-color: lightgray;
+  border: white solid 3px
+}
+.pink-container{
+  background-color: white;
+  border: #ee6e73 solid 3px
+  
 }
 
-.white-container, .gray-container {
+.pink-container, .gray-container {
   width: 100%;
   padding: 20px;
 }

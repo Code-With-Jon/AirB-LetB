@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
     <!-- JavaScript for Materialize -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <title>List Homes</title>
+    <script src="https://kit.fontawesome.com/2ec42d532e.js" crossorigin="anonymous"></script>
+    <title>EditMyHomes</title>
 </head>
 
-<body id='home-background'>
+<body>
     <header>
         <nav class="nav-wrapper">
 
@@ -24,7 +24,7 @@
             <ul class="right">
 
                 <li> <a href="/Homes">Home</a> </li>
-                <li> <a href="/About">About</a></li>
+                <li> <a href="/">About</a></li>
                 <li> <a href="/Homes/<%= user._id %>">Become A Host</a></li>
                 <li> <a href="/Homes/<%= user._id %>/myHomes">My Homes</a></li>
                 <% if (user) { %>
@@ -37,29 +37,29 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <div class='scroll-container'>
-            <div>
-                <p style="padding-left: 45px; color: #ee6e73; background-color: white; text-align: center">Please Select
-                    A
-                    Property To View
-                    Details</p>
-            </div>
-            <% homes.forEach((home, idx)=>{ %>
-            <a href="/Homes/<%= home._id %>/detail">
-                <% if (idx % 2 === 0){ %>
-                <div class='pink-container'>
-                    <% } else { %>
-                    <div class='gray-container'>
-                        <% } %>
-                        <p><%= home.address%></p>
-                        <p><%= home.city%></p>
-                    </div>
-            </a>
-
-            <% }); %>
+    <form action="/Homes/<%=home._id%>?_method=PUT" method="POST">
+        <input name="createdBy" value="<%= user%>" readonly>
+        <div class="form-group">
+            <label for="name">Address</label>
+            <input id="name" name="address" class="form-control" placeholder="Enter Address"
+                value="<%= home.address %>" />
         </div>
-    </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="" id="city" name="city" class="form-control" placeholder="Enter City"
+                value="<%=home.city %>" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="" id="description" name="description" class="form-control" placeholder="Create description"
+                value="<%=home.description %>" />
+        </div>
+        <input name="calender" type="date" class="datepicker">
+        <button type="submit" class="btn btn-primary btn-block">
+            Save and Continue...
+        </button>
+    </form>
+
 </body>
 
 </html>

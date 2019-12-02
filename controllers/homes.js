@@ -1,5 +1,9 @@
 const User = require('../models/user');
 const Home = require('../models/homes')
+const crypto = require('crypto')
+const multer = require('multer')
+const GridFsStorage = require('multer-gridfs-storage')
+const Grid = require('gridfs-stream')
 
 module.exports = {
     index,
@@ -8,14 +12,26 @@ module.exports = {
     delHome,
     search,
     view,
-    myHomes
+    myHomes,
+    editView,
+    updateHome,
+    addStay
+    // addImage
 };
+
+
+// function addImage() {
+// }
 
 function myHomes(req, res) {
     Home.find({ createdBy: req.params.id }, (err, homes) => {
-        res.render('Homes/myHomes', {
-            homes
+        User.findById(req.params.id, (err, user) => {
+            res.render('Homes/myHomes', {
+                homes,
+                user
+            })
         })
+
     })
 }
 
@@ -48,7 +64,7 @@ function search(req, res, next) {
 function newHome(req, res) {
     User.findById(req.params.id, (err, user) => {
         res.render('Homes/addHome', {
-            user
+            user: req.user
         })
     });
 }
@@ -64,8 +80,29 @@ function addHome(req, res) {
     });
 }
 
-function delHome(req, res, next) {
-    res.render('/')
+function delHome(req, res) {
+    Home.findByIdAndDelete(req.params.id, (err, home) => {
+        if (err) { console.log(err); return; }
+        res.redirect(`/Homes/${home.createdBy}/myHomes`);
+    })
+}
+
+function editView(req, res) {
+    Home.findById(req.params.id, (err, home) => {
+        if (err) { console.log(err); return; }
+        res.render(`Homes/edit`, {
+            title: 'Edit Home View',
+            home,
+            user: home.createdBy
+        })
+    })
+}
+
+function updateHome(req, res) {
+    Home.findByIdAndUpdate(req.params.id, req.body, (err, home) => {
+        if (err) { console.log(err); return; }
+        res.redirect(`/Homes/${home.createdBy}/myHomes`)
+    })
 }
 
 function view(req, res) {
@@ -75,8 +112,18 @@ function view(req, res) {
             res.render('Homes/viewHome', {
                 title: 'Detail',
                 home,
-                user
+                user: req.user
             });
+        });
+    });
+}
+
+function addStay(req, res) {
+    User.findById(req.params.id, (err, user) => {
+        let home = new Home(req.body);
+        home.createdBy = req.params.id;
+        home.save((err) => {
+            res.redirect('/Homes');
         });
     });
 }

@@ -16,6 +16,33 @@
 </head>
 
 <body>
+    <header>
+        <nav class="nav-wrapper">
+
+            <a href="/Homes" class="brand-logo left">AIR B & LET B</a>
+            <ul class="right">
+
+                <li> <a href="/Homes">Home</a> </li>
+                <li> <a href="/">About</a></li>
+                <li> <a href="/Homes/<%= user.id %>">Become A Host</a></li>
+                <li> <a href="/Homes/<%= user.id %>/myHomes">My Homes</a></li>
+                <% if (user) { %>
+                <li> <a href="/logout"><%=user.name%></a></li>
+
+                <% } else { %>
+                <li> <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
+                <% } %>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <label for="name">Upload Images</label>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id='file' class='custom-file-input'>
+        <label for='file' class='custom-file-label'>Choose Image</label>
+        <input type="submit" value="Submit">
+    </form>
+
     <form action="/Homes/<%= user.id %>" method="POST">
         <input name="createdBy" value="<%= user.id%>" readonly>
         <div class="form-group">
@@ -33,6 +60,7 @@
             <input type="" id="description" name="description" class="form-control" placeholder="Create description"
                 value="<%= typeof description != 'undefined' ? description : '' %>" />
         </div>
+        <label for="name">Date</label>
         <input name="calender" type="date" class="datepicker">
         <button type="submit" class="btn btn-primary btn-block">
             Post Home

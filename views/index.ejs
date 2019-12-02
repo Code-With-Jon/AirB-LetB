@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
-  <title><%= title %></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <title>List Homes</title>
 </head>
 
-<body>
-  <h1><%= title %></h1>
-  <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-  <p>Welcome to <%= title %></p>
+<body id="landing-body">
+  <nav class="nav-wrapper">
 
-  <% if (user){%>
-  <div class="container">
-    <div class='scroll-container'>
-      <% homes.forEach((home, idx)=>{ %>
-      <a href="/Homes/<%= home._id %>/detail">
-        <% if (idx % 2 === 0){ %>
-        <div class='white-container'>
-          <% } else { %>
-          <div class='gray-container'>
-            <% } %>
-            <p><%= home.address%></p>
-            <p><%= home.city%></p>
-          </div>
-      </a>
+    <a href="" class="brand-logo left">Air B & Let B</a>
+    <ul class="right">
+      <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+    </ul>
+  </nav>
+  <h3 style="text-align: center;">Welcome to <%= title %></h3>
+  <div>
 
-      <%}) %>
-      <%  } else { %>
-      <div class="container">
-        <div class='scroll-container'>
-          <% homes.forEach((home, idx)=>{ %>
+    <% if (user){%>
+    <div class="container">
+      <div class='scroll-container'>
+        <% homes.forEach((home, idx)=>{ %>
+        <a href="/Homes/<%= home._id %>/detail">
           <% if (idx % 2 === 0){ %>
-          <div class='white-container'>
+          <div class='pink-container'>
             <% } else { %>
             <div class='gray-container'>
               <% } %>
               <p><%= home.address%></p>
               <p><%= home.city%></p>
             </div>
-            </a>
-            <%}) %>
-            <% } %>
+        </a>
+
+        <%}) %>
+        <%  } else { %>
+        <div class="container">
+          <div class='scroll-container'>
+            <p style="padding-left: 45px; color: #ee6e73; background-color: white">Please Sign In to View Rentals</p>
+            <% homes.forEach((home, idx)=>{ %>
+            <% if (idx % 2 === 0){ %>
+            <div class='pink-container'>
+              <% } else { %>
+              <div class='gray-container'>
+                <% } %>
+                <p><%= home.address%></p>
+                <p><%= home.city%></p>
+              </div>
+              </a>
+              <%}) %>
+              <% } %>
+            </div>
           </div>
         </div>
 </body>

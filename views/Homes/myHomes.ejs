@@ -5,17 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/2ec42d532e.js" crossorigin="anonymous"></script>
+    <title>MyHomes</title>
 </head>
 
 <body>
-    <h1> My Homes</h1>
+    <header>
+        <nav class="nav-wrapper">
+
+            <a href="/Homes" class="brand-logo left">AIR B & LET B</a>
+            <ul class="right">
+
+                <li> <a href="/Homes">Home</a> </li>
+                <li> <a href="/">About</a></li>
+                <li> <a href="/Homes/<%= user._id %>">Become A Host</a></li>
+                <li> <a href="/Homes/<%= user._id %>/myHomes">My Homes</a></li>
+                <% if (user) { %>
+                <li> <a href="/logout"><%=user.name%></a></li>
+
+                <% } else { %>
+                <li> <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
+                <% } %>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <h1 style="text-align-last: center;"> My Homes</h1>
     <div>
         <div>
             <% for (home of homes) { %>
-            <div>
-                <h1><%= home.address %></h1>
-                <p><%= home.createdBy%></p>
+            <div style="border: solid">
+                <label>Address</label>
+                <p><%= home.address %></h1>
+                    <label>City</label>
+                    <p><%= home.city %></h1>
+                        <label>Created By</label>
+                        <p><%= home.createdBy%></p>
+                        <form action="/Homes/<%=home._id%>?_method=DELETE" method="POST">
+                            <button type="submit" value="x">x</button>
+                        </form>
+                        <a href="/Homes/<%=home._id%>/edit">
+                            <button type="button" class=" btn fa fa-edit">
+                            </button>
+                        </a>
+
             </div>
             <% } %>
         </div>
