@@ -15,13 +15,37 @@ module.exports = {
     myHomes,
     editView,
     updateHome,
-    confirmRental
+    confirmRental,
+    viewStays
     // addImage
 };
 
 
 // function addImage() {
 // }
+
+function viewStays(req, res) {
+    User.findById(req.user._id).populate('stays').exec(function (err, user) {
+        console.log(user, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<here")
+        res.render('Homes/myStays', {
+            title: 'My Stays',
+            // homes,
+            user
+        })
+    })
+}
+// User.findById(req.user.id, (err, user) => {
+//     res.send(user)
+// })
+
+// }
+// User.findById(req.user.id, (err, user) => {
+//     Home.find(req.params.id, (err, homes) => {
+//         console.log("LIST OF USER'S HOMES", user.stays)
+
+
+// })
+
 
 function myHomes(req, res) {
     Home.find({ createdBy: req.params.id }, (err, homes) => {
@@ -121,12 +145,18 @@ function view(req, res) {
 
 function confirmRental(req, res) {
     Home.findById(req.params.id, (err, home) => {
-        user = req.user;
-        user.stays.push(home._id)
-        console.log("USER after push: ", user)
-        user.save((err) => {
-            console.log("USER inside save: ", user)
-            res.redirect('/Homes');
+        User.findById(req.user.id, (err, user) => {
+            user.stays.push(home._id);
+            user.save((err) => {
+                if (err) {
+                    console.log("ERROR!: ", err, user)
+                    res.redirect('/Homes')
+                }
+                else {
+                    console.log("USER inside save: ", user);
+                    res.redirect(`/Homes/${user._id}/myStays`)
+                }
+            });
         });
     }
     );

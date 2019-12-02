@@ -17,12 +17,7 @@ var userSchema = new Schema({
     stays: [{
         type: Schema.Types.ObjectId,
         ref: 'Homes'
-    }],
-    homes: {
-        type: Schema.Types.ObjectId,
-        ref: 'Homes'
-    }
-
+    }]
 }, {
         timestamps: true
     });

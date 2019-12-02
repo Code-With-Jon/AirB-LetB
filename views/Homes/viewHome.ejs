@@ -27,6 +27,7 @@
                 <li> <a href="/">About</a></li>
                 <li> <a href="/Homes/<%= user._id %>">Become A Host</a></li>
                 <li> <a href="/Homes/<%= user._id %>/myHomes">My Homes</a></li>
+                <li> <a href="/Homes/<%= user._id %>/myStays">My Stays</a></li>
                 <% if (user) { %>
                 <li> <a href="/logout"><%=user.name%></a></li>
 
@@ -37,7 +38,7 @@
             </div>
         </nav>
     </header>
-    <form action="/Homes/<%=home._id%>/confirmRental" method="POST">
+    <form action="/Homes/<%=home._id%>/myStays" method="POST">
         <label>Renter</label>
         <input name="createdBy" value="<%= user.name%>" readonly>
         <div class="form-group">

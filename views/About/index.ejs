@@ -5,10 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Google Icon Fonts used by Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS Framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- JavaScript for Materialize -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/2ec42d532e.js" crossorigin="anonymous"></script>
     <title>About</title>
 </head>
 
 <body>
+    <header>
+        <nav class="nav-wrapper">
+
+            <a href="/Homes" class="brand-logo left">AIR B & LET B</a>
+            <ul class="right">
+
+                <li> <a href="/Homes">Home</a> </li>
+                <li> <a href="/">About</a></li>
+                <li> <a href="/Homes/<%= user._id %>">Become A Host</a></li>
+                <li> <a href="/Homes/<%= user._id %>/myHomes">My Homes</a></li>
+                <li> <a href="/Homes/<%= user._id %>/myStays">My Stays</a></li>
+                <% if (user) { %>
+                <li> <a href="/logout"><%=user.name%></a></li>
+
+                <% } else { %>
+                <li> <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
+                <% } %>
+            </ul>
+            </div>
+        </nav>
+    </header>
     <h2>Get To Know Us</h2>
 </body>
 
