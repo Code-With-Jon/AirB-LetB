@@ -9,7 +9,11 @@ var homeSchema = new Schema({
     description: { type: String, required: true },
     // maxOccupancy: { type: Number, required: true },
     // pricePerNight: { type: Number, required: true },
-    calander: {
+    checkIn: {
+        type: Date,
+        default: Date.now
+    },
+    checkOut: {
         type: Date,
         default: Date.now
     },
@@ -17,7 +21,7 @@ var homeSchema = new Schema({
     images: [],
     createdBy: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
-    timestamps: true
-});
+        timestamps: true
+    });
 
 module.exports = mongoose.model('Homes', homeSchema)

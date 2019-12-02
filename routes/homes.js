@@ -17,8 +17,8 @@ router.get('/:id/myHomes', homeCtrl.myHomes)
 router.delete('/:id', homeCtrl.delHome)
 router.get('/:id/edit', homeCtrl.editView)
 router.put('/:id', homeCtrl.updateHome)
-router.post('/:id/myStays', homeCtrl.addStay)
-
+// router.post('/:id/myStays', homeCtrl.addStay)
+router.post('/:id/confirmRental', homeCtrl.confirmRental)
 
 //upload file
 // router.post('/upload', upload.single('file'), (req, res) => {

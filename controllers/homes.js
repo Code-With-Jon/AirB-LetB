@@ -15,7 +15,7 @@ module.exports = {
     myHomes,
     editView,
     updateHome,
-    addStay
+    confirmRental
     // addImage
 };
 
@@ -26,6 +26,7 @@ module.exports = {
 function myHomes(req, res) {
     Home.find({ createdBy: req.params.id }, (err, homes) => {
         User.findById(req.params.id, (err, user) => {
+            console.log("LIST OF USER'S HOMES", user.homes)
             res.render('Homes/myHomes', {
                 homes,
                 user
@@ -118,12 +119,15 @@ function view(req, res) {
     });
 }
 
-function addStay(req, res) {
-    User.findById(req.params.id, (err, user) => {
-        let home = new Home(req.body);
-        home.createdBy = req.params.id;
-        home.save((err) => {
+function confirmRental(req, res) {
+    Home.findById(req.params.id, (err, home) => {
+        user = req.user;
+        user.stays.push(home._id)
+        console.log("USER after push: ", user)
+        user.save((err) => {
+            console.log("USER inside save: ", user)
             res.redirect('/Homes');
         });
-    });
+    }
+    );
 }

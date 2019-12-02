@@ -14,7 +14,10 @@ var userSchema = new Schema({
     phone: { type: String },
     avatar: String,
     googleId: String,
-    stays: [],
+    stays: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Homes'
+    }],
     homes: {
         type: Schema.Types.ObjectId,
         ref: 'Homes'

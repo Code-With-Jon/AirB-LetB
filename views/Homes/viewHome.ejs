@@ -37,7 +37,7 @@
             </div>
         </nav>
     </header>
-    <form action="/Homes/<%=home._id%>?_method=PUT" method="POST">
+    <form action="/Homes/<%=home._id%>/confirmRental" method="POST">
         <label>Renter</label>
         <input name="createdBy" value="<%= user.name%>" readonly>
         <div class="form-group">
@@ -49,9 +49,12 @@
                 readonly />
             <label for="description">Description</label>
             <input type="" id="description" name="description" class="form-control" placeholder="Create description"
-                value="<%=home.description %>" readonly />
+                value="<%= home.description %>" readonly />
         </div>
-        <input name="calender" type="date" class="datepicker">
+        <label for="name"> Checkin Date</label>
+        <input name="checkIn" type="date" class="datepicker">
+        <label for="name"> CheckOut Date</label>
+        <input name="checkOut" type="date" class="datepicker">
         <button type="submit" class="btn btn-primary btn-block">
             Confirm Rental
         </button>
