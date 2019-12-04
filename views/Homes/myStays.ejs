@@ -39,8 +39,12 @@
         </nav>
     </header>
     <p><%= title%></p>
-    <div>
-        <% user.stays.forEach((stay) => { %>
+    <%let count = 1 %>
+    <% user.stays.forEach((stay) => { %>
+    <div style="border: 5px solid black; text-align-last: center; height: 150px; overflow-y: scroll; margin:28px;">
+        <div style="background: #ee6e73; text-align: center; margin-left: 34%; padding-top: 10px; width: 31%;">
+            <%= `${count} .` %>
+        </div>
         <label>Address</label>
         <p><%= stay.address%></p>
         <label>City</label>
@@ -51,8 +55,10 @@
         <p><%= stay.checkIn%></p>
         <label>Check Out</label>
         <p><%= stay.checkOut%></p>
-        <% }) %>
     </div>
+    <%count++%>
+    <% }) %>
+
 
 </body>
 

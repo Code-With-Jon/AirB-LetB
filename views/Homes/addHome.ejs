@@ -44,9 +44,11 @@
         <input type="submit" value="Submit">
     </form>
 
-    <form action="/Homes/<%= user.id %>" method="POST">
-        <input name="createdBy" value="<%= user.id%>" readonly>
-        <div class="form-group">
+    <form action="/Homes/<%= user.id %>" method="POST" style="
+        text-align-last: center;">
+        <input name=" createdBy" value="<%= user.id%>" readonly>
+        <div class="form-group" style="
+        text-align: -webkit-center;">
             <label for="name">Address</label>
             <input id="name" name="address" class="form-control" placeholder="Enter Address"
                 value="<%= typeof address != 'undefined' ? address : '' %>" />
