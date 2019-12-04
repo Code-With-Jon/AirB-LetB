@@ -42,7 +42,7 @@
     <div>
         <div>
             <% for (home of homes) { %>
-            <div style="border: solid">
+            <div style="border: solid;margin-left: 35%;margin-right: 23%;">
                 <label>Address</label>
                 <p><%= home.address %></h1>
                     <label>City</label>
@@ -50,7 +50,7 @@
                         <label>Created By</label>
                         <p><%= home.createdBy%></p>
                         <form action="/Homes/<%=home._id%>?_method=DELETE" method="POST">
-                            <button type="submit" value="x">x</button>
+                            <button type="submit" value="x" style="float: right;">x</button>
                         </form>
                         <a href="/Homes/<%=home._id%>/edit">
                             <button type="button" class=" btn fa fa-edit">
