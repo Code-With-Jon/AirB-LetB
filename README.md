@@ -1,6 +1,7 @@
 # AirB-LetB
 
 ### Description
+
 Air B & Let B was developed as an example of a basic CRUD application built with Express, Node JS, Mongo, Mongoose, and ejs. The concept was built off of an exsisting concept known to the public as Air B and B. The platform allows users to be either a host or a renter of properties for short term rentals.
 ------------
 
@@ -33,7 +34,9 @@ Air B & Let B was developed as an example of a basic CRUD application built with
 
 ### Link
 #### [AIRB&LETB](https://airbletb.herokuapp.com/ "Link To AIRB&LETB")
+------------
 
+### Wireframe
 Landing Page (Unauthorized): ![Landing Page (Unauthorized)](https://i.imgur.com/W8flhqq.png))
 Landing Page (Authorized): ![Landing Page (Authorized)](https://i.imgur.com/9m8Z1Yu.png)
 Adding a Home (Rentee): ![Adding a Home (Rentee)](https://i.imgur.com/5V876x3.png)
