@@ -2,7 +2,7 @@
 
 ### Description
 Air B & Let B was developed as an example of a basic CRUD application built with Express, Node JS, Mongo, Mongoose, and ejs. The concept was built off of an exsisting concept known to the public as Air B and B. The platform allows users to be either a host or a renter of properties for short term rentals.
-
+------------
 
 ### Users
 
@@ -29,12 +29,16 @@ Air B & Let B was developed as an example of a basic CRUD application built with
  * Searching for the home they would like to remove on the "My Homes page"
  * Click the "X" Icon will perminantly delete that posting and can not revert back
  * If a user deletes a posting and would like to post the same home again, they may do so by creating a new posting. 
+------------
 
-  
+### Link
+#### [AIRB&LETB](https://airbletb.herokuapp.com/ "Link To AIRB&LETB")
 
-Game Start: ![Game Start](https://i.imgur.com/JzUACNe.jpg)
-Empty Cell - Search: ![Empty Cell - Search](https://i.imgur.com/EEJQn9v.jpg)
-Empty Cell - Next to Bomb: ![Empty Cell - Next to Bomb](https://i.imgur.com/BK3aeTy.jpg)
-Game Over: ![Game Over](https://i.imgur.com/OPvB0Yu.jpg)
+Landing Page (Unauthorized): ![Landing Page (Unauthorized)](https://i.imgur.com/W8flhqq.png))
+Landing Page (Authorized): ![Landing Page (Authorized)](https://i.imgur.com/9m8Z1Yu.png)
+Adding a Home (Rentee): ![Adding a Home (Rentee)](https://i.imgur.com/5V876x3.png)
+View all homes listed (Rentee): ![View all homes listed (Rentee)](https://i.imgur.com/wQkBhBW.png)
+
+View all homes Rented (Renter): ![View all homes Rented (Renter)](https://i.imgur.com/pDWcfIq.png)
 
 

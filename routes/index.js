@@ -3,7 +3,6 @@ var passport = require('passport');
 var homeCtrl = require('../controllers/homes');
 var Home = require('../models/homes')
 
-
 // The root route renders our only view
 router.get('/', (req, res) => {
   Home.find({}, (err, homes) => {

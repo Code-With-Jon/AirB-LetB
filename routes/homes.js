@@ -10,16 +10,20 @@ router.get('/', homeCtrl.index);
 //Add Home Page
 
 // router.get('/:id', homeCtrl.index)
-router.get('/:id', homeCtrl.new)
-router.post('/:id', homeCtrl.addHome);
-router.get('/:id/detail', homeCtrl.view)
-router.get('/:id/myHomes', homeCtrl.myHomes)
-router.delete('/:id', homeCtrl.delHome)
-router.get('/:id/edit', homeCtrl.editView)
-router.put('/:id', homeCtrl.updateHome)
-router.get('/:id/myStays', homeCtrl.viewStays)
-router.post('/:id/myStays', homeCtrl.confirmRental)
+router.get('/:id', isLoggedIn, homeCtrl.new)
+router.post('/:id', isLoggedIn, homeCtrl.addHome);
+router.get('/:id/detail', isLoggedIn, homeCtrl.view)
+router.get('/:id/myHomes', isLoggedIn, homeCtrl.myHomes)
+router.delete('/:id', isLoggedIn, homeCtrl.delHome)
+router.get('/:id/edit', isLoggedIn, homeCtrl.editView)
+router.put('/:id', isLoggedIn, homeCtrl.updateHome)
+router.get('/:id/myStays', isLoggedIn, homeCtrl.viewStays)
+router.post('/:id/myStays', isLoggedIn, homeCtrl.confirmRental)
 
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/');
+}
 
 //upload file
 // router.post('/upload', upload.single('file'), (req, res) => {

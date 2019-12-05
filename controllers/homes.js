@@ -21,8 +21,8 @@ module.exports = {
 };
 
 
-// function addImage() {
-// }
+
+
 
 function viewStays(req, res) {
     User.findById(req.user._id).populate('stays').exec(function (err, user) {
