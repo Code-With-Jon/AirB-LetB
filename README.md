@@ -5,6 +5,7 @@
 
 
 Air B & Let B was developed as an example of a basic CRUD application built with Express, Node JS, Mongo, Mongoose, and ejs. The concept was built off of an exsisting concept known to the public as Air B and B. The platform allows users to be either a host or a renter of properties for short term rentals.
+
 ------------
 
 ### Users
