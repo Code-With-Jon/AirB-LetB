@@ -46,7 +46,9 @@
 
     <form action="/Homes/<%= user.id %>" method="POST" style="
         text-align-last: center;">
-        <input name=" createdBy" value="<%= user.id%>" readonly>
+        <input name=" createdBy" value="<%= user.id%>" readonly style="
+        display: none;
+    ">
         <div class="form-group" style="
         text-align: -webkit-center;">
             <label>Image Links</label>

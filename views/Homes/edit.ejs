@@ -39,7 +39,12 @@
         </nav>
     </header>
     <form action="/Homes/<%=home._id%>?_method=PUT" method="POST">
-        <input name="createdBy" value="<%= user%>" readonly>
+        <input name="createdBy" value="<%= user%>" readonly style="
+        display: none;
+    ">
+        <input id="image" name="image" class="form-control" placeholder="Enter Image URL"
+            value="<%= typeof address != 'undefined' ? address : '' %>" />
+
         <div class="form-group">
             <label for="name">Address</label>
             <input id="name" name="address" class="form-control" placeholder="Enter Address"
@@ -55,7 +60,26 @@
             <input type="" id="description" name="description" class="form-control" placeholder="Create description"
                 value="<%=home.description %>" />
         </div>
-        <input name="calender" type="date" class="datepicker">
+        <div class="form-group">
+            <label for="Max Occupancy">Max Occupancy</label>
+            <select name="maxOccupancy" id="maxOccupancy" style="
+            display: inline-flex;
+        ">
+                <option value="">--Please choose an option--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="pricePerNight">pricePerNight: $</label>
+            <input type="textarea" id="pricePerNight" name="pricePerNight" class="form-control"
+                placeholder="Price Per Night" value="<%= typeof pricePerNight != 'undefined' ? pricePerNight : '' %>" />
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block">
             Save and Continue...
         </button>

@@ -53,8 +53,16 @@
                     <% } else { %>
                     <div class='gray-container'>
                         <% } %>
+                        <img src="<%= home.image %>" style="
+                        width: 62%;
+                    " />
+                        <br>
+                        <label>Address</label>
                         <p><%= home.address%></p>
+                        <label>City</label>
                         <p><%= home.city%></p>
+                        <label>Price Per Night</label>
+                        <p>$<%= home.pricePerNight %></p>
                     </div>
             </a>
 
