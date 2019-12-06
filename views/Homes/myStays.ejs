@@ -50,11 +50,18 @@
         <label>City</label>
         <p><%= stay.city%></p>
         <label>Description</label>
-        <p><%= stay.description%></p>
+        <label>Max Guests</label>
+        <label>Max Occupancy</label>
+        <p><%= stay.maxOccupancy%></p>
+        <label>Price Per Night</label>
+        <p>$<%= stay.pricePerNight%></p>
         <label>Check In</label>
         <p><%= stay.checkIn%></p>
         <label>Check Out</label>
         <p><%= stay.checkOut%></p>
+        <label>Number Of Guests</label>
+        <p><%= stay.guests%></p>
+
     </div>
     <%count++%>
     <% }) %>

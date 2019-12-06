@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="../../public/stylesheets/style.css" />
     <!-- JavaScript for Materialize -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://kit.fontawesome.com/2ec42d532e.js" crossorigin="anonymous"></script>
@@ -43,34 +43,62 @@
         <input name="createdBy" value="<%= user.name%>" readonly>
         <div class="form-group">
             <img src="<%= home.image %>" style="width: 100vw; ">
-            <label for="name">Address</label>
-            <input id="name" name="address" class="form-control" placeholder="Enter Address" value="<%= home.address %>"
-                readonly />
-            <label for="city">City</label>
-            <text type="" id="city" name="city" class="form-control" placeholder="Enter City"
-                readonly><%=home.city %></text>
-        </div>
-        <div class="form-group"></div>
-        <label for="description">Description</label>
-        <textarea type="" id="description" name="description" class="form-control" placeholder="Create description"
-            value="" readonly><%= home.description %></textarea>
-        </div>
-        <div class="form-group">
-            <label for="Max Occupancy">Max Occupancy</label>
-            <text><%= home.maxOccupancy %></text>
-        </div>
+            <div class='lower-view' style="
+            margin-left: 10px;
+        ">
+                <label for="name">Address</label>
+                <text><%= home.address %></text>
+                </br>
+                <label for="city">City</label>
+                <text type="" id="city" name="city" class="form-control" placeholder="Enter City"
+                    readonly><%=home.city %></text>
 
-        <div class="form-group">
-            <label for="pricePerNight">Price Per Night: $</label>
-            <text><%= home.pricePerNight %></text>
+                <div class="form-group"></div>
+                <label for="description">Description</label>
+                <text><%= home.description %></text>
+
+                <div class="form-group">
+                    <label for="Max Occupancy">Max Occupancy</label>
+                    <text><%= home.maxOccupancy %></text>
+
+
+                    <div class="form-group">
+                        <label for="pricePerNight">Price Per Night: $</label>
+                        <text><%= home.pricePerNight %></text>
+                        <br>
+                        <h4> Please Fill Out Form To Reserve Home</h4>
+                        <label for="name"> Checkin Date</label>
+                        <input name="checkIn" type="date" class="datepicker" style="
+                        display: inline-flex; width: 50%;">
+                        <br>
+                        <label for=" name"> CheckOut Date</label>
+                        <input name="checkOut" type="date" class="datepicker" style="
+                        display: inline-flex; width: 50%;">
+
+                        <div class=" form-group">
+                            <label for="guests">Number of Guests</label>
+                            <select name="guests" id="guests" style="
+                display: inline-flex; width: 50%;
+            ">
+                                <option value="">--Please choose an option--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="
+        margin-bottom: 20px;
+        margin-top: 20px;
+    ">
+                            Confirm Rental
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <label for="name"> Checkin Date</label>
-        <input name="checkIn" type="date" class="datepicker">
-        <label for="name"> CheckOut Date</label>
-        <input name="checkOut" type="date" class="datepicker">
-        <button type="submit" class="btn btn-primary btn-block">
-            Confirm Rental
-        </button>
+        </div>
     </form>
 </body>
 

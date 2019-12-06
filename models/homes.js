@@ -9,6 +9,7 @@ var homeSchema = new Schema({
     description: { type: String, required: true },
     maxOccupancy: { type: Number },
     pricePerNight: { type: Number },
+    guests: { type: Number },
     checkIn: {
         type: Date,
         default: Date.now
