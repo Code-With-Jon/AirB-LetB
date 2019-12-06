@@ -42,15 +42,27 @@
         <label>Renter</label>
         <input name="createdBy" value="<%= user.name%>" readonly>
         <div class="form-group">
+            <img src="<%= home.image %>" style="width: 100vw; ">
             <label for="name">Address</label>
             <input id="name" name="address" class="form-control" placeholder="Enter Address" value="<%= home.address %>"
                 readonly />
             <label for="city">City</label>
-            <input type="" id="city" name="city" class="form-control" placeholder="Enter City" value="<%=home.city %>"
-                readonly />
-            <label for="description">Description</label>
-            <input type="" id="description" name="description" class="form-control" placeholder="Create description"
-                value="<%= home.description %>" readonly />
+            <text type="" id="city" name="city" class="form-control" placeholder="Enter City"
+                readonly><%=home.city %></text>
+        </div>
+        <div class="form-group"></div>
+        <label for="description">Description</label>
+        <textarea type="" id="description" name="description" class="form-control" placeholder="Create description"
+            value="" readonly><%= home.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Max Occupancy">Max Occupancy</label>
+            <text><%= home.maxOccupancy %></text>
+        </div>
+
+        <div class="form-group">
+            <label for="pricePerNight">Price Per Night: $</label>
+            <text><%= home.pricePerNight %></text>
         </div>
         <label for="name"> Checkin Date</label>
         <input name="checkIn" type="date" class="datepicker">

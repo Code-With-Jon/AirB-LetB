@@ -66,3 +66,6 @@ nav .brand-logo {
   text-align: center;
 }
 
+nav > ul > li > a:active{
+  background: dimgray;
+}

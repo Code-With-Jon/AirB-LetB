@@ -37,31 +37,56 @@
             </div>
         </nav>
     </header>
-    <label for="name">Upload Images</label>
+    <!-- <label for="name">Upload Images</label>
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" id='file' class='custom-file-input'>
         <label for='file' class='custom-file-label'>Choose Image</label>
         <input type="submit" value="Submit">
-    </form>
+    </form> -->
 
     <form action="/Homes/<%= user.id %>" method="POST" style="
         text-align-last: center;">
         <input name=" createdBy" value="<%= user.id%>" readonly>
         <div class="form-group" style="
         text-align: -webkit-center;">
+            <label>Image Links</label>
+            <input id="image" name="image" class="form-control" placeholder="Enter Image URL"
+                value="<%= typeof address != 'undefined' ? address : '' %>" />
             <label for="name">Address</label>
             <input id="name" name="address" class="form-control" placeholder="Enter Address"
-                value="<%= typeof address != 'undefined' ? address : '' %>" />
+                value="<%= typeof image != 'undefined' ? image : '' %>" />
         </div>
+
         <div class="form-group">
             <label for="city">City</label>
             <input type="" id="city" name="city" class="form-control" placeholder="Enter City"
                 value="<%= typeof city != 'undefined' ? city : '' %>" />
         </div>
+
         <div class="form-group">
             <label for="description">Description</label>
-            <input type="" id="description" name="description" class="form-control" placeholder="Create description"
-                value="<%= typeof description != 'undefined' ? description : '' %>" />
+            <textarea type="textarea" id="description" name="description" class="form-control"
+                placeholder="Create description"
+                value="<%= typeof description != 'undefined' ? description : '' %>"> </textarea>
+        </div>
+        <div class="form-group">
+            <label for="Max Occupancy">Max Occupancy</label>
+            <select name="maxOccupancy" id="maxOccupancy" style="
+            display: inline-flex;
+        ">
+                <option value="">--Please choose an option--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5+</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="pricePerNight">pricePerNight: $</label>
+            <input type="textarea" id="pricePerNight" name="pricePerNight" class="form-control"
+                placeholder="Price Per Night" value="<%= typeof pricePerNight != 'undefined' ? pricePerNight : '' %>" />
         </div>
         <button type="submit" class="btn btn-primary btn-block">
             Post Home
