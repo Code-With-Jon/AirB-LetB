@@ -52,3 +52,8 @@ View all homes Rented (Renter): ![View all homes Rented (Renter)](https://i.imgu
 #### Languages/Frameworks
 HTML, CSS, Express, JS, Mongo, Mongoose, ES6, EJS
  * Deployed on heroku
+
+ #### Next Steps:
+  * Add search filter
+  * Date validation
+  * Total cost of stay
