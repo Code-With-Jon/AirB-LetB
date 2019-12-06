@@ -47,8 +47,10 @@
             <div style="border: solid;margin-left: 35%;margin-right: 23%;">
                 <label>Address</label>
                 <p><%= home.address %></h1>
+                    <br>
                     <label>City</label>
                     <p><%= home.city %></h1>
+                        <br>
                         <label>Created By</label>
                         <p><%= home.createdBy%></p>
                         <form action="/Homes/<%=home._id%>?_method=DELETE" method="POST">

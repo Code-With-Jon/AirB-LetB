@@ -47,4 +47,8 @@ View all homes listed (Rentee): ![View all homes listed (Rentee)](https://i.imgu
 
 View all homes Rented (Renter): ![View all homes Rented (Renter)](https://i.imgur.com/pDWcfIq.png)
 
+------------
 
+#### Languages/Frameworks
+HTML, CSS, Express, JS, Mongo, Mongoose, ES6, EJS
+ * Deployed on heroku
